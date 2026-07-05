@@ -1,0 +1,42 @@
+[
+  {
+    "id": "software-engineering",
+    "name": "Software Engineering",
+    "tier": "primary",
+    "order": 1,
+    "keyArt": { "layers": [], "still": "/scenes/software-engineering.png" },
+    "blurb": "Systems that hold up — algorithms, infrastructure, and the discipline between them."
+  },
+  {
+    "id": "data-science",
+    "name": "Data Science",
+    "tier": "primary",
+    "order": 2,
+    "keyArt": { "layers": [], "still": "/scenes/data-science.png" },
+    "blurb": "Signal out of noise — models trained, validated, and shipped."
+  },
+  {
+    "id": "product",
+    "name": "Product",
+    "tier": "primary",
+    "order": 3,
+    "keyArt": { "layers": [], "still": "/scenes/product.png" },
+    "blurb": "From problem to launch — deciding what to build, and why."
+  },
+  {
+    "id": "entrepreneurship",
+    "name": "Entrepreneurship",
+    "tier": "beyond",
+    "order": 4,
+    "keyArt": { "layers": [], "still": "/scenes/entrepreneurship.png" },
+    "blurb": "A studio and its products — building the thing that builds things."
+  },
+  {
+    "id": "filmmaking",
+    "name": "Filmmaking",
+    "tier": "beyond",
+    "order": 5,
+    "keyArt": { "layers": [], "still": "/scenes/filmmaking.png" },
+    "blurb": "The first craft — framing, pacing, and the eye behind the lens."
+  }
+]

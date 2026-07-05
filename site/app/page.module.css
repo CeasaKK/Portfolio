@@ -1,0 +1,196 @@
+/* ---- Hero (§8.1, static for now — living treatment lands in step 6) ---- */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.heroArt {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 16, 11, 0.55) 0%, rgba(20, 16, 11, 0) 35%),
+    linear-gradient(0deg, rgba(20, 16, 11, 0.6) 0%, rgba(20, 16, 11, 0) 30%);
+}
+
+.heroCopy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: clamp(96px, 16vh, 180px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.wordmark {
+  font-size: clamp(3.5rem, 11vw, 12rem);
+  color: var(--cream);
+}
+
+.manifesto {
+  max-width: 34em;
+  color: var(--muted);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: var(--s-6);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream);
+  opacity: 0.7;
+  font-size: 1.25rem;
+  animation: cue 2.4s var(--ease) infinite;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* ---- Filmography (§8.3) ---- */
+.work {
+  padding-block: var(--s-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 4rem 1fr minmax(0, 28rem);
+  align-items: baseline;
+  gap: var(--s-5);
+  padding: var(--s-7) 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left var(--t-micro) var(--ease);
+}
+
+.featureRow:hover {
+  padding-left: var(--s-5);
+}
+
+.featureIndex {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+.featureTitle {
+  font-size: clamp(1.9rem, 5vw, 4.5rem);
+  color: var(--cream);
+  transition: color var(--t-micro) var(--ease);
+}
+
+.featureRow:hover .featureTitle {
+  color: var(--gold-hi);
+}
+
+.featureBlurb {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.beyondHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.beyondSub {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.beyondGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-6);
+}
+
+.beyondCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: var(--s-5);
+  transition: border-color var(--t-micro) var(--ease);
+}
+
+.beyondCard:hover {
+  border-color: var(--gold);
+}
+
+.beyondArt {
+  border-radius: var(--r-card);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.beyondTitle {
+  font-size: 1.5rem;
+  color: var(--cream);
+}
+
+/* ---- Footer (§8.8, minimal for now) ---- */
+.footer {
+  padding-block: var(--s-9);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.socials {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-6);
+}
+
+.social {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: border-color var(--t-micro) var(--ease), color var(--t-micro) var(--ease);
+}
+
+.social:hover {
+  color: var(--gold-hi);
+  border-color: var(--gold);
+}
+
+@media (max-width: 760px) {
+  .featureRow {
+    grid-template-columns: 3rem 1fr;
+  }
+  .featureBlurb {
+    grid-column: 2;
+  }
+  .beyondGrid {
+    grid-template-columns: 1fr;
+  }
+}
