@@ -16,6 +16,13 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Hidden documents (headless renderers, crawlers, background tabs) throttle
+    // IntersectionObserver — show content immediately rather than risk an
+    // opacity-0 page in those contexts.
+    if (document.hidden) {
+      el.classList.add("in");
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
