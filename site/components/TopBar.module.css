@@ -89,3 +89,21 @@
 .resumeItem:hover {
   background: rgba(241, 230, 206, 0.06);
 }
+
+@media (max-width: 560px) {
+  .links {
+    gap: var(--s-4);
+  }
+  .link {
+    letter-spacing: 0.1em;
+  }
+  .resumeButton {
+    padding: 9px 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .links a[href="#features"] {
+    display: none; /* Work + the pinned Résumé stay (§14) */
+  }
+}

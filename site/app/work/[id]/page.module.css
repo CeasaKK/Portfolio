@@ -1,0 +1,139 @@
+.main {
+  padding-top: 96px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-7);
+  padding-bottom: var(--s-10);
+}
+
+.back {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  width: fit-content;
+  transition: color var(--t-micro) var(--ease);
+}
+
+.back:hover {
+  color: var(--gold-hi);
+}
+
+.heroMedia {
+  overflow: hidden;
+  border-radius: var(--r-card);
+  max-height: 60vh;
+}
+
+.heroImg {
+  width: 100%;
+  object-fit: cover;
+  max-height: 60vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.title {
+  font-size: clamp(1.9rem, 5vw, 4.5rem);
+  color: var(--cream);
+}
+
+.oneLine {
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 38em;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-7);
+  max-width: 760px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.block h2 {
+  color: var(--gold);
+}
+
+.outcomeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  border-left: 2px solid var(--gold);
+  padding-left: var(--s-5);
+}
+
+.outcomeBlock h2 {
+  color: var(--gold);
+}
+
+.outcome {
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  color: var(--cream);
+}
+
+.stack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.chip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  background: rgba(241, 230, 206, 0.06);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 4px 14px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+.linkSolid,
+.linkOutline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  padding: 10px 22px;
+  transition: background var(--t-micro) var(--ease), color var(--t-micro) var(--ease);
+}
+
+.linkSolid {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.linkSolid:hover {
+  background: var(--gold-hi);
+}
+
+.linkOutline {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.linkOutline:hover {
+  color: var(--gold-hi);
+  border-color: var(--gold-hi);
+}

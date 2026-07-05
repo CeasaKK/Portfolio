@@ -46,9 +46,8 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling is Lenis's job (§10); CSS smooth would fight it.
+   Under reduced motion the rig is inert and anchors jump natively. */
 
 body {
   background: var(--ink);
@@ -105,6 +104,25 @@ img {
   max-width: var(--content-max);
   margin-inline: auto;
   padding-inline: var(--pad-x);
+}
+
+/* §10 reveals: rise as the filament reaches the section */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity var(--t-reveal) var(--ease), transform var(--t-reveal) var(--ease);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 :focus-visible {

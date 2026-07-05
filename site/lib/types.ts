@@ -8,6 +8,8 @@ export type MotionSpec = {
 export type SceneAsset = {
   layers: { id: string; src: string; parallax: number; motion?: MotionSpec }[];
   still: string;
+  /** Sun centre as fractions of the 16:9 frame — anchors code-drawn glow + the filament origin. */
+  sun?: { x: number; y: number };
 };
 
 export type Domain = {

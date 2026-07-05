@@ -1,0 +1,93 @@
+.tilt {
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  transition: border-color var(--t-micro) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--gold);
+}
+
+.thumbWrap {
+  overflow: hidden;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: scale var(--t-micro) var(--ease);
+}
+
+.card:hover .thumb {
+  scale: 1.03;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.year {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.featured {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(235, 161, 58, 0.4);
+  border-radius: var(--r-pill);
+  padding: 2px 10px;
+}
+
+.title {
+  font-size: 1.25rem;
+  color: var(--cream);
+}
+
+.oneLine {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  flex: 1;
+}
+
+.stack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.chip {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  background: rgba(241, 230, 206, 0.06);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 3px 12px;
+}

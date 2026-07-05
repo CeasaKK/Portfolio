@@ -1,0 +1,159 @@
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transform: scale(1.06); /* headroom for the parallax drift */
+}
+
+.img {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* Sun: soft glow pulse (§6) */
+.glow {
+  position: absolute;
+  width: 34%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 217, 140, 0.5) 0%, rgba(235, 161, 58, 0.22) 38%, transparent 70%);
+  mix-blend-mode: screen;
+  animation: glowPulse 9s var(--ease) infinite;
+  pointer-events: none;
+}
+
+.glowHero {
+  width: 46%;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.08;
+  }
+}
+
+/* Water: subtle horizontal shimmer under the sun line (§6) */
+.shimmer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 217, 140, 0.1) 0px,
+    transparent 2px,
+    transparent 9px
+  );
+  mix-blend-mode: overlay;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent);
+  animation: shimmerDrift 13s linear infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes shimmerDrift {
+  from {
+    transform: translateX(-1.5%);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(1.5%);
+    opacity: 1;
+  }
+}
+
+/* Clouds: slow drift + opacity breathe (hero only) */
+.cloud {
+  position: absolute;
+  width: 42%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(241, 230, 206, 0.07), transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.cloudA {
+  top: 12%;
+  left: 8%;
+  animation: cloudDrift 14s var(--ease) infinite alternate;
+}
+
+.cloudB {
+  top: 26%;
+  right: 4%;
+  animation: cloudDrift 11s var(--ease) infinite alternate-reverse;
+}
+
+@keyframes cloudDrift {
+  from {
+    transform: translateX(-3%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(3%);
+    opacity: 1;
+  }
+}
+
+/* Node twinkle (hero only) */
+.twinkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-hi);
+  animation: twinkle 6s var(--ease) infinite;
+  pointer-events: none;
+}
+
+.tw1 {
+  top: 34%;
+  right: 12%;
+}
+
+.tw2 {
+  top: 52%;
+  right: 28%;
+  animation-delay: 2s;
+}
+
+.tw3 {
+  top: 22%;
+  right: 38%;
+  animation-delay: 4s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art {
+    transform: none;
+  }
+  .glow,
+  .shimmer,
+  .cloud,
+  .twinkle {
+    display: none; /* freeze to the graded still (§6) */
+  }
+}

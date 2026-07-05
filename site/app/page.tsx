@@ -1,48 +1,54 @@
 import Image from "next/image";
 import domains from "@/data/domains.json";
+import projects from "@/data/projects.json";
 import profile from "@/data/profile.json";
-import type { Domain, Profile } from "@/lib/types";
+import type { Domain, Profile, Project } from "@/lib/types";
+import DomainSection from "@/components/DomainSection";
+import Filament from "@/components/Filament";
+import GitHubFeed from "@/components/GitHubFeed";
+import Hero from "@/components/Hero";
+import Reveal from "@/components/Reveal";
+import Timeline from "@/components/Timeline";
 import styles from "./page.module.css";
 
 const p = profile as Profile;
+const allProjects = projects as Project[];
 const all = [...(domains as Domain[])].sort((a, b) => a.order - b.order);
 const features = all.filter((d) => d.tier === "primary");
 const beyond = all.filter((d) => d.tier === "beyond");
 
+const byDomain = (id: string) => allProjects.filter((pr) => pr.domainId === id);
+
 export default function Home() {
   return (
-    <main id="top">
-      <section className={styles.hero}>
-        <Image
-          src="/scenes/hero.png"
-          alt="Golden-hour beach scene: a figure works on a laptop as the sun sets over the ocean, pier and city skyline behind"
-          fill
-          priority
-          className={styles.heroArt}
-        />
-        <div className={styles.heroVignette} aria-hidden="true" />
-        <div className={`container ${styles.heroCopy}`}>
-          <p className="eyebrow">{p.eyebrow}</p>
-          <h1 className={`display ${styles.wordmark}`}>
-            Aryan
-            <br />
-            Malhotra
-          </h1>
-          <p className={styles.manifesto}>{p.tagline}</p>
-        </div>
-        <a href="#work" className={styles.scrollCue} aria-label="Scroll to work">
-          <span aria-hidden="true">↓</span>
-        </a>
+    <main id="top" className={styles.main}>
+      <Hero />
+
+      <section className={`container ${styles.lead}`}>
+        <Reveal>
+          <p className={styles.leadLine}>
+            Five disciplines, one continuous story — code, data, product, a
+            company, and a camera. Every new build joins the reel;{" "}
+            <em>it keeps growing</em>.
+          </p>
+        </Reveal>
       </section>
 
       <section id="work" className={`container ${styles.work}`}>
-        <p className="eyebrow">Filmography</p>
+        <Reveal>
+          <p className="eyebrow">Filmography</p>
+        </Reveal>
 
         <div id="features" className={styles.featureList}>
           {features.map((d, i) => (
             <a key={d.id} href={`#${d.id}`} className={styles.featureRow}>
               <span className={styles.featureIndex}>{String(i + 1).padStart(2, "0")}</span>
-              <span className={`display ${styles.featureTitle}`}>{d.name}</span>
+              <span className={styles.featureMain}>
+                <span className={`display ${styles.featureTitle}`}>{d.name}</span>
+                <span className={styles.featureMeta}>
+                  {byDomain(d.id).length} projects
+                </span>
+              </span>
               <span className={styles.featureBlurb}>{d.blurb}</span>
             </a>
           ))}
@@ -62,6 +68,7 @@ export default function Home() {
                 alt=""
                 width={720}
                 height={405}
+                sizes="(max-width: 760px) 100vw, 50vw"
                 className={styles.beyondArt}
               />
               <span className={`display ${styles.beyondTitle}`}>{d.name}</span>
@@ -71,8 +78,16 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className={`container ${styles.footer}`}>
+      {all.map((d) => (
+        <DomainSection key={d.id} domain={d} projects={byDomain(d.id)} />
+      ))}
+
+      <GitHubFeed />
+      <Timeline />
+
+      <footer id="contact" className={`container ${styles.footer}`}>
         <p className="eyebrow">Contact</p>
+        <p className={`display ${styles.footerLine}`}>Roll credits — then write.</p>
         <ul className={styles.socials}>
           {p.socials.map((s) => (
             <li key={s.label}>
@@ -82,7 +97,12 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <p className={styles.colophon}>
+          © {new Date().getFullYear()} {p.name} · Built as one film, still rolling.
+        </p>
       </footer>
+
+      <Filament />
     </main>
   );
 }

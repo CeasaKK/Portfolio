@@ -1,0 +1,64 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 16, 11, 0.55) 0%, rgba(20, 16, 11, 0) 35%),
+    linear-gradient(0deg, rgba(20, 16, 11, 0.6) 0%, rgba(20, 16, 11, 0) 30%);
+  pointer-events: none;
+}
+
+.sunAnchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+.copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: clamp(96px, 16vh, 180px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.wordmark {
+  /* floor lowered from the spec's 3.5rem — "MALHOTRA" in expanded caps
+     overflows a 375px viewport at 56px */
+  font-size: clamp(2.5rem, 11vw, 12rem);
+  color: var(--cream);
+}
+
+.manifesto {
+  max-width: 34em;
+  color: var(--muted);
+}
+
+.cue {
+  position: absolute;
+  bottom: var(--s-6);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream);
+  opacity: 0.7;
+  font-size: 1.25rem;
+  animation: cue 2.4s var(--ease) infinite;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
