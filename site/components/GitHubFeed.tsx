@@ -1,9 +1,6 @@
-import profile from "@/data/profile.json";
-import type { Profile } from "@/lib/types";
+import { getProfile } from "@/lib/content";
 import Reveal from "./Reveal";
 import styles from "./GitHubFeed.module.css";
-
-const p = profile as Profile;
 
 // §8.6 (R6): the one genuinely live element — a read-only GitHub commit feed,
 // fetched server-side and cached for an hour.
@@ -61,6 +58,7 @@ function ago(iso: string): string {
 }
 
 export default async function GitHubFeed() {
+  const p = await getProfile();
   const commits = await getCommits(p.githubHandle);
   const profileUrl = `https://github.com/${p.githubHandle}`;
 

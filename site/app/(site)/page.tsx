@@ -1,25 +1,23 @@
 import Image from "next/image";
-import domains from "@/data/domains.json";
-import projects from "@/data/projects.json";
-import profile from "@/data/profile.json";
-import type { Domain, Profile, Project } from "@/lib/types";
 import DomainSection from "@/components/DomainSection";
 import Filament from "@/components/Filament";
 import GitHubFeed from "@/components/GitHubFeed";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import Timeline from "@/components/Timeline";
+import { getDomains, getProfile, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
-const p = profile as Profile;
-const allProjects = projects as Project[];
-const all = [...(domains as Domain[])].sort((a, b) => a.order - b.order);
-const features = all.filter((d) => d.tier === "primary");
-const beyond = all.filter((d) => d.tier === "beyond");
+export default async function Home() {
+  const [p, allProjects, all] = await Promise.all([
+    getProfile(),
+    getProjects(),
+    getDomains(),
+  ]);
+  const features = all.filter((d) => d.tier === "primary");
+  const beyond = all.filter((d) => d.tier === "beyond");
+  const byDomain = (id: string) => allProjects.filter((pr) => pr.domainId === id);
 
-const byDomain = (id: string) => allProjects.filter((pr) => pr.domainId === id);
-
-export default function Home() {
   return (
     <main id="top" className={styles.main}>
       <Hero />

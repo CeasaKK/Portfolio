@@ -1,0 +1,20 @@
+{
+  "title": "IIT-G Summer Analytics",
+  "domainId": "data-science",
+  "year": "2025",
+  "oneLine": "Applied analytics coursework and projects.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "Python",
+    "Pandas"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/data-science.png",
+  "featured": false,
+  "order": 6
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Data Science",
+  "tier": "primary",
+  "order": 2,
+  "blurb": "Signal out of noise — models trained, validated, and shipped.",
+  "keyArtStill": "/scenes/data-science.png",
+  "sunX": 0.185,
+  "sunY": 0.84
+}

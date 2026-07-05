@@ -1,0 +1,9 @@
+{
+  "name": "Entrepreneurship",
+  "tier": "beyond",
+  "order": 4,
+  "blurb": "A studio and its products — building the thing that builds things.",
+  "keyArtStill": "/scenes/entrepreneurship.png",
+  "sunX": 0.545,
+  "sunY": 0.665
+}

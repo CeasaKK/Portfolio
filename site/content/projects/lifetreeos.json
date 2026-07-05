@@ -1,0 +1,20 @@
+{
+  "title": "LifeTreeOS",
+  "domainId": "product",
+  "year": "2026",
+  "oneLine": "A personal operating system for living deliberately.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "Product spec",
+    "Design"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/product.png",
+  "featured": true,
+  "order": 7
+}

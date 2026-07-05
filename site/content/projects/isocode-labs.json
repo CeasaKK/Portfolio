@@ -1,0 +1,19 @@
+{
+  "title": "Isocode Labs",
+  "domainId": "entrepreneurship",
+  "year": "2026",
+  "oneLine": "A studio and its products — co-founded with Mishra.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "Venture"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/entrepreneurship.png",
+  "featured": false,
+  "order": 9
+}

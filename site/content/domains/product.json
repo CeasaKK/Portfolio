@@ -1,0 +1,9 @@
+{
+  "name": "Product",
+  "tier": "primary",
+  "order": 3,
+  "blurb": "From problem to launch — deciding what to build, and why.",
+  "keyArtStill": "/scenes/product.png",
+  "sunX": 0.84,
+  "sunY": 0.8
+}

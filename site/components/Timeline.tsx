@@ -1,9 +1,7 @@
-import timeline from "@/data/timeline.json";
 import type { TimelineEntry } from "@/lib/types";
+import { getTimeline } from "@/lib/content";
 import Reveal from "./Reveal";
 import styles from "./Timeline.module.css";
-
-const entries = [...(timeline as TimelineEntry[])].sort((a, b) => a.order - b.order);
 
 const KIND_LABEL: Record<TimelineEntry["kind"], string> = {
   education: "Education",
@@ -15,7 +13,8 @@ const KIND_LABEL: Record<TimelineEntry["kind"], string> = {
 
 // §8.7: LinkedIn-style chronological spine, rendered in the cinematic system —
 // nodes rhyme with the filament (§5).
-export default function Timeline() {
+export default async function Timeline() {
+  const entries = await getTimeline();
   return (
     <section id="timeline" data-filament className={`container ${styles.section}`}>
       <Reveal>

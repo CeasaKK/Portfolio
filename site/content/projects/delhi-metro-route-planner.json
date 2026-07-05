@@ -1,0 +1,21 @@
+{
+  "title": "Delhi Metro Route Planner",
+  "domainId": "software-engineering",
+  "year": "2025",
+  "oneLine": "Shortest-path routing over the Delhi Metro network.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder — Dijkstra with a min-heap priority queue.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "C++",
+    "Dijkstra",
+    "Min-heap"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/software-engineering.png",
+  "featured": true,
+  "order": 1
+}

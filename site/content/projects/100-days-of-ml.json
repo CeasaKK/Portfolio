@@ -1,0 +1,21 @@
+{
+  "title": "100 Days of ML",
+  "domainId": "data-science",
+  "year": "2025",
+  "oneLine": "A public, daily machine-learning practice track.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "Python",
+    "scikit-learn",
+    "PyTorch"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/data-science.png",
+  "featured": false,
+  "order": 5
+}

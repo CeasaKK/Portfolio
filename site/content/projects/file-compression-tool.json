@@ -1,0 +1,21 @@
+{
+  "title": "File Compression Tool",
+  "domainId": "software-engineering",
+  "year": "2025",
+  "oneLine": "Lossless compression combining Huffman coding and LZW.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder — Huffman + LZW pipeline.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "C++",
+    "Huffman",
+    "LZW"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/software-engineering.png",
+  "featured": false,
+  "order": 3
+}

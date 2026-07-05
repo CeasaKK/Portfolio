@@ -1,0 +1,28 @@
+{
+  "name": "Aryan Malhotra",
+  "tagline": "I build software, model data, and ship products — and before any of it, I made films.",
+  "eyebrow": "Software Engineer · Data · Product",
+  "githubHandle": "CeasaKK",
+  "socials": [
+    {
+      "label": "Email",
+      "url": "mailto:malhotra.aryan.a01@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/CeasaKK"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/aryan-malhotra-profile/"
+    },
+    {
+      "label": "LeetCode",
+      "url": "https://leetcode.com/u/Ceasak/"
+    },
+    {
+      "label": "Codeforces",
+      "url": "https://codeforces.com/profile/ceasak"
+    }
+  ]
+}

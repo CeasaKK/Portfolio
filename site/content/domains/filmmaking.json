@@ -1,0 +1,9 @@
+{
+  "name": "Filmmaking",
+  "tier": "beyond",
+  "order": 5,
+  "blurb": "The first craft — framing, pacing, and the eye behind the lens.",
+  "keyArtStill": "/scenes/filmmaking.png",
+  "sunX": 0.54,
+  "sunY": 0.615
+}

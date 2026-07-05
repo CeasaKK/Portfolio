@@ -59,9 +59,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* grain — one feTurbulence overlay across the whole site (§4.4) */
-body::after {
-  content: "";
+/* grain — one feTurbulence overlay across the site (§4.4). Scoped to a
+   site-only element so the Keystatic admin (/keystatic) stays clean. */
+.grain-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;

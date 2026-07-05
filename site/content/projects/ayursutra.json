@@ -1,0 +1,21 @@
+{
+  "title": "AyurSutra",
+  "domainId": "data-science",
+  "year": "2025",
+  "oneLine": "PyTorch + FastAPI Dosha assessment, built for SIH.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder — PyTorch model served over FastAPI.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "PyTorch",
+    "FastAPI",
+    "Python"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/data-science.png",
+  "featured": true,
+  "order": 4
+}

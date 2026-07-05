@@ -1,0 +1,20 @@
+{
+  "title": "Social Media Feed Ranking System",
+  "domainId": "software-engineering",
+  "year": "2025",
+  "oneLine": "Top-K feed ranking with a heap instead of a full sort.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder — heap-based top-K selection.",
+  "tradeoffs": "",
+  "outcome": "O(N log N) → O(N log K)",
+  "stack": [
+    "C++",
+    "Heaps"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/software-engineering.png",
+  "featured": true,
+  "order": 2
+}

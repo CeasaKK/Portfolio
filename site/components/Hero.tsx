@@ -1,14 +1,12 @@
-import profile from "@/data/profile.json";
-import type { Profile } from "@/lib/types";
+import { getProfile } from "@/lib/content";
 import LivingScene from "./LivingScene";
 import styles from "./Hero.module.css";
-
-const p = profile as Profile;
 
 // Hero sun centre (fractions of the frame) — glow anchor + filament origin (§5).
 const SUN = { x: 0.145, y: 0.8 };
 
-export default function Hero() {
+export default async function Hero() {
+  const p = await getProfile();
   return (
     <section className={styles.hero}>
       <LivingScene

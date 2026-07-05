@@ -1,0 +1,20 @@
+{
+  "title": "Directed Short Films",
+  "domainId": "filmmaking",
+  "year": "2024",
+  "oneLine": "Directed shorts with 2K+ views; Inter-IIT 8.0 gold; TFPS Governing Batch.",
+  "problem": "Placeholder — to be filled via the CMS portal.",
+  "approach": "Placeholder.",
+  "tradeoffs": "",
+  "outcome": "Placeholder outcome metric.",
+  "stack": [
+    "Direction",
+    "Editing"
+  ],
+  "demo": null,
+  "repo": null,
+  "more": null,
+  "thumb": "/scenes/filmmaking.png",
+  "featured": false,
+  "order": 10
+}

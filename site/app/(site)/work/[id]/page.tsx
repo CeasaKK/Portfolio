@@ -2,19 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import domains from "@/data/domains.json";
-import projects from "@/data/projects.json";
-import type { Domain, Project } from "@/lib/types";
+import { getDomains, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
 // §8.5 — the canonical project article: every project renders through this
 // template. Deep path for the engaged visitor.
 
-const allProjects = projects as Project[];
-const allDomains = domains as Domain[];
-
-export function generateStaticParams() {
-  return allProjects.map((p) => ({ id: p.id }));
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({
@@ -23,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const project = allProjects.find((p) => p.id === id);
+  const project = (await getProjects()).find((p) => p.id === id);
   if (!project) return {};
   return {
     title: project.title,
@@ -44,10 +40,11 @@ export default async function ProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = allProjects.find((p) => p.id === id);
+  const [projects, domains] = await Promise.all([getProjects(), getDomains()]);
+  const project = projects.find((p) => p.id === id);
   if (!project) notFound();
 
-  const domain = allDomains.find((d) => d.id === project.domainId);
+  const domain = domains.find((d) => d.id === project.domainId);
 
   return (
     <main className={styles.main}>

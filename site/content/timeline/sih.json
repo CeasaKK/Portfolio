@@ -1,0 +1,9 @@
+{
+  "kind": "milestone",
+  "org": "Smart India Hackathon",
+  "title": "AyurSutra",
+  "start": "2025",
+  "end": "2025",
+  "oneLine": "Placeholder — PyTorch + FastAPI Dosha assessment.",
+  "order": 9
+}

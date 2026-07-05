@@ -5,3 +5,8 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# env — never commit secrets (Keystatic GitHub App, tokens)
+.env
+.env.local
+.env*.local

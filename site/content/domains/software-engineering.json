@@ -1,0 +1,9 @@
+{
+  "name": "Software Engineering",
+  "tier": "primary",
+  "order": 1,
+  "blurb": "Systems that hold up — algorithms, infrastructure, and the discipline between them.",
+  "keyArtStill": "/scenes/software-engineering.png",
+  "sunX": 0.265,
+  "sunY": 0.72
+}

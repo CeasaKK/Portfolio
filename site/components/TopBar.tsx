@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import resumes from "@/data/resumes.json";
 import type { Resume } from "@/lib/types";
 import styles from "./TopBar.module.css";
 
-const sorted = [...(resumes as Resume[])].sort((a, b) => a.order - b.order);
-
 // Résumé fast path (§7.5): one variant = direct download, several = dropdown.
-function ResumeControl() {
+function ResumeControl({ resumes }: { resumes: Resume[] }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const sorted = [...resumes].sort((a, b) => a.order - b.order);
 
   useEffect(() => {
     if (!open) return;
@@ -69,7 +67,7 @@ function ResumeControl() {
   );
 }
 
-export default function TopBar() {
+export default function TopBar({ resumes }: { resumes: Resume[] }) {
   return (
     <header className={styles.bar}>
       <nav className={`container ${styles.inner}`} aria-label="Primary">
@@ -83,7 +81,7 @@ export default function TopBar() {
           <a className={styles.link} href="#features">
             Features
           </a>
-          <ResumeControl />
+          <ResumeControl resumes={resumes} />
         </div>
       </nav>
     </header>
