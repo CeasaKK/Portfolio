@@ -42,7 +42,7 @@
 .nodeLit {
   fill: var(--cream);
   opacity: 1;
-  animation: nodePulse 4s var(--ease) infinite;
+  animation: nodePulse 4s ease-in-out infinite;
 }
 
 .nodeLink:hover .node {

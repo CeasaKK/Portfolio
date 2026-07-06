@@ -57,7 +57,12 @@ export default function LivingScene({ still, alt, sun, treatment, priority, size
   return (
     <div ref={rootRef} className={styles.scene}>
       <div ref={artRef} className={styles.art}>
-        <Image src={still} alt={alt} fill priority={priority} sizes={sizes} className={styles.img} />
+        {/* Ken Burns drift on the art plane itself — the core "living frame"
+            motion. Inner wrapper so the CSS loop never fights the JS parallax
+            transform on .art. */}
+        <div className={`${styles.drift} ${treatment === "hero" ? styles.driftHero : ""}`}>
+          <Image src={still} alt={alt} fill priority={priority} sizes={sizes} className={styles.img} />
+        </div>
       </div>
 
       {sun && (
@@ -73,6 +78,7 @@ export default function LivingScene({ still, alt, sun, treatment, priority, size
 
       {treatment === "hero" && (
         <div aria-hidden="true">
+          <div className={styles.breathe} />
           <div className={`${styles.cloud} ${styles.cloudA}`} />
           <div className={`${styles.cloud} ${styles.cloudB}`} />
           <div className={`${styles.twinkle} ${styles.tw1}`} />

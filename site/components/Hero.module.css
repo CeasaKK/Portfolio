@@ -50,7 +50,7 @@
   color: var(--cream);
   opacity: 0.7;
   font-size: 1.25rem;
-  animation: cue 2.4s var(--ease) infinite;
+  animation: cue 2.4s ease-in-out infinite;
 }
 
 @keyframes cue {
