@@ -19,15 +19,19 @@ export default async function Timeline() {
     <section id="timeline" data-filament className={`container ${styles.section}`}>
       <Reveal>
         <p className="eyebrow">The Reel So Far</p>
-        <h2 data-filament-target className={`display ${styles.title}`}>
+        <h2 data-filament-target className={`display sheen ${styles.title}`}>
           Timeline
         </h2>
       </Reveal>
       <ol className={styles.spine}>
-        {entries.map((e) => (
+        {entries.map((e, i) => (
           <li key={e.id} className={styles.entry}>
             <Reveal className={styles.entryInner}>
-              <span className={styles.node} aria-hidden="true" />
+              <span
+                className={styles.node}
+                style={{ animationDelay: `${(i * 0.45) % 3.2}s` }}
+                aria-hidden="true"
+              />
               <p className={styles.dates}>
                 {e.start}
                 {e.end !== e.start && ` — ${e.end ?? "Present"}`}

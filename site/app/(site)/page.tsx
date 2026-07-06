@@ -85,7 +85,7 @@ export default async function Home() {
 
       <footer id="contact" className={`container ${styles.footer}`}>
         <p className="eyebrow">Contact</p>
-        <p className={`display ${styles.footerLine}`}>Roll credits — then write.</p>
+        <p className={`display sheen ${styles.footerLine}`}>Roll credits — then write.</p>
         <ul className={styles.socials}>
           {p.socials.map((s) => (
             <li key={s.label}>

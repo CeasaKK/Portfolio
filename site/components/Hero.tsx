@@ -14,6 +14,7 @@ export default async function Hero() {
         alt="Golden-hour beach scene: a figure works on a laptop as the sun sets over the ocean, pier and city skyline behind"
         sun={SUN}
         treatment="hero"
+        sceneId="hero"
         priority
         sizes="100vw"
       />
@@ -26,7 +27,7 @@ export default async function Hero() {
       />
       <div className={`container ${styles.copy}`}>
         <p className="eyebrow">{p.eyebrow}</p>
-        <h1 className={`display ${styles.wordmark}`}>
+        <h1 className={`display sheen ${styles.wordmark}`}>
           Aryan
           <br />
           Malhotra

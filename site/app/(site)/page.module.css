@@ -52,6 +52,19 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   color: var(--gold);
+  animation: indexGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes indexGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(255, 217, 140, 0.8);
+  }
 }
 
 .featureMain {
@@ -109,6 +122,20 @@
   border-radius: var(--r-card);
   padding: var(--s-5);
   transition: border-color var(--t-micro) var(--ease);
+  animation: beyondFloat 7s ease-in-out infinite alternate;
+}
+
+.beyondCard:nth-child(2n) {
+  animation-delay: 1.8s;
+}
+
+@keyframes beyondFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-7px);
+  }
 }
 
 .beyondCard:hover {

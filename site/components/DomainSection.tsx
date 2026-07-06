@@ -21,6 +21,7 @@ export default function DomainSection({
             alt={`${domain.name} key art`}
             sun={domain.keyArt.sun}
             treatment="light"
+            sceneId={domain.id}
             sizes="(max-width: 1500px) 100vw, 1500px"
           />
           <div className={styles.scrim} aria-hidden="true" />
@@ -29,7 +30,7 @@ export default function DomainSection({
               {domain.tier === "primary" ? "Feature" : "Beyond the Frame"} ·{" "}
               {projects.length} {projects.length === 1 ? "project" : "projects"}
             </p>
-            <h2 data-filament-target className={`display ${styles.title}`}>
+            <h2 data-filament-target className={`display sheen ${styles.title}`}>
               {domain.name}
             </h2>
             <p className={styles.blurb}>{domain.blurb}</p>
@@ -37,9 +38,9 @@ export default function DomainSection({
         </div>
       </Reveal>
       <div className={`container ${styles.grid}`}>
-        {projects.map((pr) => (
+        {projects.map((pr, i) => (
           <Reveal key={pr.id}>
-            <ProjectCard project={pr} />
+            <ProjectCard project={pr} index={i} />
           </Reveal>
         ))}
       </div>
