@@ -65,11 +65,8 @@ export default async function GitHubFeed() {
   return (
     <section id="live" data-filament className={`container ${styles.section}`}>
       <Reveal>
-        <p className={`eyebrow ${styles.liveLine}`}>
-          <span className={styles.liveDot} aria-hidden="true" />
-          Live from the repo
-        </p>
-        <h2 data-filament-target className={`display sheen ${styles.title}`}>
+        <p className="eyebrow">Live from the repo</p>
+        <h2 data-filament-target className={`display ${styles.title}`}>
           Now Playing
         </h2>
         <p className={styles.sub}>
@@ -77,13 +74,9 @@ export default async function GitHubFeed() {
         </p>
         {commits && commits.length > 0 ? (
           <ol className={styles.list}>
-            {commits.map((c, i) => (
+            {commits.map((c) => (
               <li key={`${c.sha}-${c.date}`} className={styles.row}>
-                <span
-                  className={styles.dot}
-                  style={{ animationDelay: `${i * 0.4}s` }}
-                  aria-hidden="true"
-                />
+                <span className={styles.dot} aria-hidden="true" />
                 <div className={styles.commit}>
                   <p className={styles.message}>{c.message}</p>
                   <p className={styles.meta}>

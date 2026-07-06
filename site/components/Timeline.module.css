@@ -25,30 +25,6 @@
   background: linear-gradient(180deg, var(--gold), var(--line));
 }
 
-/* a charge of light travelling down the spine */
-.spine::after {
-  content: "";
-  position: absolute;
-  left: 119px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, transparent 0%, var(--gold-hi) 50%, transparent 100%);
-  background-size: 100% 14%;
-  background-repeat: no-repeat;
-  filter: blur(0.5px);
-  animation: spineFlow 5s ease-in-out infinite;
-}
-
-@keyframes spineFlow {
-  from {
-    background-position: 0 -16%;
-  }
-  to {
-    background-position: 0 116%;
-  }
-}
-
 .entry {
   position: relative;
 }
@@ -69,17 +45,6 @@
   border-radius: 50%;
   background: var(--ink);
   border: 1.5px solid var(--cream);
-  animation: tlNodePulse 3.2s ease-in-out infinite;
-}
-
-@keyframes tlNodePulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 217, 140, 0);
-  }
-  50% {
-    box-shadow: 0 0 10px 2px rgba(255, 217, 140, 0.55);
-  }
 }
 
 .dates {
@@ -125,9 +90,6 @@
 @media (max-width: 760px) {
   .spine::before {
     left: 4px;
-  }
-  .spine::after {
-    left: 3px;
   }
   .node {
     left: 0.5px;

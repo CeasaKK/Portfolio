@@ -57,10 +57,9 @@ export default function Filament() {
   const [geo, setGeo] = useState<Geometry | null>(null);
   const [reduced, setReduced] = useState(false);
   const trunkRef = useRef<SVGPathElement>(null);
-  const maskRef = useRef<SVGPathElement>(null); // mirrors the trunk draw so pulses only run on the drawn portion
   const headRef = useRef<SVGCircleElement>(null);
   const branchRefs = useRef<(SVGPathElement | null)[]>([]);
-  const nodeRefs = useRef<(SVGGElement | null)[]>([]);
+  const nodeRefs = useRef<(SVGCircleElement | null)[]>([]);
   const sampleIdx = useRef(0);
 
   const build = useCallback(() => {
@@ -162,9 +161,7 @@ export default function Filament() {
       const L = samples[i].y < targetY ? trunkLength : samples[i].l;
 
       const trunk = trunkRef.current;
-      const offset = String(Math.max(trunkLength - L, 0));
-      if (trunk) trunk.style.strokeDashoffset = offset;
-      if (maskRef.current) maskRef.current.style.strokeDashoffset = offset;
+      if (trunk) trunk.style.strokeDashoffset = String(Math.max(trunkLength - L, 0));
 
       const head = headRef.current;
       if (head) {
@@ -231,19 +228,6 @@ export default function Filament() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          {/* limits the energy pulses to the portion of trunk already drawn */}
-          <mask id="filament-drawn" maskUnits="userSpaceOnUse" x="0" y="0" width={width} height={height}>
-            <path
-              ref={maskRef}
-              d={trunkD}
-              fill="none"
-              stroke="#fff"
-              strokeLinecap="round"
-              strokeWidth={(mobile ? 1.5 : 2.5) + 4}
-              strokeDasharray={trunkLength}
-              strokeDashoffset={reduced ? 0 : trunkLength}
-            />
-          </mask>
         </defs>
 
         <path
@@ -255,16 +239,6 @@ export default function Filament() {
           strokeDashoffset={reduced ? 0 : trunkLength}
           filter="url(#filament-glow)"
         />
-
-        {/* energy pulses travelling down the drawn line */}
-        {!reduced && (
-          <path
-            d={trunkD}
-            className={styles.pulses}
-            strokeWidth={mobile ? 2.5 : 3.5}
-            mask="url(#filament-drawn)"
-          />
-        )}
 
         {branches.map((b, i) => (
           <path
@@ -288,15 +262,15 @@ export default function Filament() {
             className={styles.nodeLink}
             aria-label={`Go to ${b.id.replace(/-/g, " ")}`}
           >
-            <g
+            <circle
               ref={(el) => {
                 nodeRefs.current[i] = el;
               }}
-              className={`${styles.nodeG} ${reduced ? styles.nodeLit : ""}`}
-            >
-              <circle cx={b.node.x} cy={b.node.y} r={mobile ? 9 : 12} className={styles.ripple} />
-              <circle cx={b.node.x} cy={b.node.y} r={mobile ? 4 : 5.5} className={styles.node} />
-            </g>
+              cx={b.node.x}
+              cy={b.node.y}
+              r={mobile ? 4 : 5.5}
+              className={`${styles.node} ${reduced ? styles.nodeLit : ""}`}
+            />
           </a>
         ))}
 

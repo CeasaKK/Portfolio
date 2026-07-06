@@ -19,25 +19,6 @@
   stroke-linecap: round;
 }
 
-/* energy pulses: short bright dashes flowing along the drawn trunk */
-.pulses {
-  fill: none;
-  stroke: var(--gold-hi);
-  stroke-linecap: round;
-  stroke-dasharray: 12 240;
-  opacity: 0.9;
-  animation: pulseFlow 4s linear infinite;
-}
-
-@keyframes pulseFlow {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: -252;
-  }
-}
-
 .branch {
   fill: none;
   stroke: var(--gold);
@@ -58,7 +39,7 @@
   transition: opacity var(--t-micro) var(--ease), fill var(--t-micro) var(--ease);
 }
 
-.nodeG.nodeLit .node {
+.nodeLit {
   fill: var(--cream);
   opacity: 1;
   animation: nodePulse 4s ease-in-out infinite;
@@ -78,57 +59,8 @@
   }
 }
 
-/* expanding ripple ring on lit nodes */
-.ripple {
-  fill: none;
-  stroke: var(--gold-hi);
-  stroke-width: 1;
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.nodeG.nodeLit .ripple {
-  animation: ripple 2.8s ease-out infinite;
-}
-
-@keyframes ripple {
-  0% {
-    opacity: 0.7;
-    transform: scale(0.35);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-}
-
 .head {
   fill: var(--gold-hi);
   opacity: 0;
   transition: opacity var(--t-micro) var(--ease);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: headPulse 1.8s ease-in-out infinite;
-}
-
-@keyframes headPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.45);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pulses,
-  .ripple {
-    display: none;
-  }
 }

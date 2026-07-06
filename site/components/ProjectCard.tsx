@@ -4,20 +4,10 @@ import type { Project } from "@/lib/types";
 import TiltCard from "./TiltCard";
 import styles from "./ProjectCard.module.css";
 
-export default function ProjectCard({
-  project,
-  index = 0,
-}: {
-  project: Project;
-  index?: number;
-}) {
+export default function ProjectCard({ project }: { project: Project }) {
   return (
     <TiltCard className={styles.tilt}>
-      <Link
-        href={`/work/${project.id}`}
-        className={styles.card}
-        style={{ animationDelay: `${(index % 4) * 1.1}s` }}
-      >
+      <Link href={`/work/${project.id}`} className={styles.card}>
         <div className={styles.thumbWrap}>
           <Image
             src={project.media.thumb}
