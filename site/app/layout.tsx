@@ -20,7 +20,7 @@ const inter = Inter({
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getProfile();
   return {
-    metadataBase: new URL("https://aryanmalhotra.dev"), // placeholder — swap for the real domain at deploy
+    metadataBase: new URL("https://aryan.isocodelabs.com"),
     title: {
       default: "Aryan Malhotra — Software · Data · Product",
       template: "%s — Aryan Malhotra",

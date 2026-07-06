@@ -11,7 +11,10 @@ const useGithub =
   !!process.env.KEYSTATIC_GITHUB_CLIENT_ID;
 
 const storage = useGithub
-  ? ({ kind: "github", repo: { owner: "CeasaKK", name: "Portfolio" } } as const)
+  ? ({
+      kind: "github",
+      repo: { owner: "CeasaKK", name: "Portfolio" },
+    } as const)
   : ({ kind: "local" } as const);
 
 export default config({
